@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+  <link rel="stylesheet" href="../css/success/common.css">
+  <style>
+    body {
+      background-color: #0c2034;
+      width:100%;
+      max-height: 1200px;
+      min-width: 1600px;
+    }
+    a{
+      white-space: nowrap;
+    }
+    li>a{
+        text-decoration: none;
+        color:white;
+    }
+    li>a:hover{
+        color: white;
+        text-decoration: none;
+    }
+    #content {
+
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items:center;
+    }
+    .flex-left{
+      height: 580px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #101e2c;
+      border-radius: 15px;
+      box-shadow: 3px 3px 6px #226288, -3px -3px 6px #273c47;
+      font-size: 23px;
+      font-weight: 600;
+      color:white;
+      padding:0px 0px;
+      width: 20%;
+      min-width: 400px;
+    }
+    .flex-right{
+      height: 500px;
+      /*display: flex;*/
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      display: none;
+      /*left: 100px;*/
+    }
+    #gender-graph {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      /* position: absolute;
+      top: 115px;
+      left: 10px; */
+      width: 100%;
+      height: 44%;
+    }
+
+    #age-graph {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      /* position: absolute;
+      top: 485px;
+      left: 10px; */
+      width: 100%;
+      height: 40%;
+    }
+
+    #routeGraph {
+      /* top: 135px;
+      left: 424px; */
+
+      height: 580px;
+    }
+
+    #map {
+      /* position: absolute;
+      top: 500px;
+      right: 0;
+      margin-right: 20px; */
+      border-radius: 20px;
+      width: 500px;
+      height: 580px;
+    }
+
+    /*展示的列表样式*/
+    #user-table {
+      /* position: absolute;
+      top: 135px;
+      right: 0;
+      margin-right: 20px; */
+      border-radius: 20px;
+      border-top: 1px solid #195BB9;
+      width: 500px;
+      height: 580px;
+      max-height: 1000px;
+      overflow-y: scroll;
+    }
+
+    #user-table::-webkit-scrollbar {
+      display: none;
+    }
+
+    .display {
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #195BB9;
+      border-radius: 20px;
+      background-color: #102b38;
+    }
+
+    .display th {
+      color: #dd5;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 20px;
+      background-color: #102b38;
+      padding: 15px 20px;
+    }
+
+    .display tr {
+      text-align: left;
+      color: white;
+      cursor: pointer;
+    }
+
+    .userInfo:hover {
+      background-color: #286685;
+    }
+
+    .display tr:nth-child(even) {
+      background-color: #102b38;
+    }
+
+    .display tr:first-child {
+      width: 50px;
+    }
+
+    .display td {
+      padding: 15px 20px;
+
+    }
+    #container{
+      height: 100%;
+      max-height: 1200px;
+      padding-top: 200px;
+      padding-bottom: 100px;
+    }
+  </style>
+ 
+</head>
+
+<body>
+<div id="header">
+  <div class="head-bk">
+    <div id="logo">
+      <img src="../img/subway.png">
+    </div>
+    <ul id="tab">
+      <li class="firstP">
+        <a href="successIndex.html">首页</a>
+      </li>
+      <li class="secondP">
+        <a href="flowControl.html">地铁流量数据监控</a>
+      </li>
+      <li class="thirdP">
+        <a class="active" href="usersManage.html">用户管理</a>
+      </li>
+      <li class="fourthP">
+        <a href="sendMes.html">通知编辑</a>
+      </li>
+      <li class="fourthP">
+        <a href="notice.html">警报消息历史</a>
+
+      </li>
+      <li class="fourthP">
+        <a href="covidTracking.html">Covid患者追踪</a>
+      </li>
+      <div id="inf">
+        <a id="logout" href="logout">退出登录</a>
+      </div>
+    </ul>
+  </div>
+</div>
+
+  <div id="container">
+    <div id="content">
+      <div class="flex-left">
+        用户信息统计
+        <div id="gender-graph">
+
+        </div>
+        <div id="age-graph">
+  
+        </div>
+      </div>
+     
+      <div id="map">
+      
+      </div>
+      <div id="user-table">
+        <table class="display">
+          <thead>
+            <tr>
+              <th>乘客id</th>
+              <th>所在地</th>
+              <th>出生年份</th>
+              <th>性别</th>
+            </tr>
+          </thead>
+          <tbody class="usersInfo">
+            <tr class="userInfo" v-for="(u,index) in users" @click="getTrans(u[0])">
+              <td>
+                {{u[0]}}
+              </td>
+              <td>
+                {{u[1]}}
+              </td>
+              <td>
+                {{u[2]}}
+              </td>
+              <td>
+                {{u[3]}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+      <div class="flex-right">
+        <button type="button"  onclick="back()" class="btn btn-success">Back</button>
+
+        <div id="routeGraph">
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+  <script src="../source/jquery-3.4.1.min.js"></script>
+  <script src="../source/vue.min.js"></script>
+  <script src="../source/map/china.js"></script>
+  <script src="../source/echarts-liquidfill.js"></script>
+  <script src="../js/users.js"></script>
+  <script>
+      function back(){
+        document.getElementById("user-table").style.display = "block";
+        document.getElementsByClassName("flex-right")[0].style.display = "none";
+      }
+  </script>
+</body>
+
+</html>

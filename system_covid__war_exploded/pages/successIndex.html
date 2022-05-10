@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/success/common.css" />
+  <style>
+    #logo img {
+      animation: myjump 3.2s 1;
+    }
+    a{
+      white-space: nowrap;
+    }
+    @keyframes myjump {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(-580%, 0);
+      }
+
+
+    }
+
+    body {
+      width: 2200px;
+      height: 1000px;
+      background-color: #0c2034;
+    }
+
+    #content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      background-color: #0c2034;
+    }
+
+    #param {
+      position: absolute;
+      width: 362px;
+      height: 500px;
+      top: 208px;
+      left: 10px;
+      background-color: #101e2c;
+      border-radius: 15px;
+      box-shadow: 3px 3px 6px #226288, -3px -3px 6px #273c47;
+      opacity: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      
+    }
+
+    #param-tit {
+      margin-top: 15px;
+      color: #ffffff;
+      font-size: 24px;
+    }
+
+    
+    #func-change,
+    #time-change,
+    #mode-change,
+    #attr-select
+     {
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      color: #ffffff
+    }
+
+    #func-change ul,
+    #time-change ul {
+      width: 347px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    #attr-select ul {
+      width: 307px;
+      margin-bottom: 98px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #mode-change ul {
+      width: 400px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #sunny{
+      position:absolute;
+      bottom: 50px;
+      margin: 3px;
+      left: 90px;
+      padding: 12px 24px;
+      width: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: small;
+      color: #ffffff;
+      z-index: 0;
+    }
+    #rain {
+      position:absolute;
+      bottom: 50px;
+      margin: 3px;
+      right: 90px;
+      padding: 12px 24px;
+      width: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: small;
+      color: #ffffff;
+      z-index: 0;
+    }
+    #weekend{
+      position:absolute;
+      bottom: 50px;
+      margin: 3px;
+      right: 90px;
+      padding: 12px 24px;
+      width: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: small;
+      color: #ffffff;
+      z-index: 10;
+    }
+    
+    #weekday{
+      position:absolute;
+      bottom: 50px;
+      margin: 3px;
+      left: 90px;
+      padding: 12px 24px;
+      width: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: small;
+      color: #ffffff;
+      /* z-index: 10; */
+    }
+    #func-change li,
+    #time-change li,
+    #mode-change li,
+    #attr-select li
+    {
+      margin: 3px;
+      padding: 12px 24px;
+      width: 50px;
+      text-align: center;
+      font-weight: bold;
+      color: #d4d7f5;
+      transition: background 0.1s, color 0.1s;
+      background: linear-gradient(145deg, #2876a3, rgb(26, 107, 106));
+      box-shadow: inset 3px 3px 6px #13374d, inset -3px -3px 6px #13374d;
+    }
+    #predict button{
+      margin: 3px;
+      padding: 12px 24px;
+      width: 150px;
+      text-align: center;
+      font-weight: bold;
+      color: #edd4f5;
+      transition: background 0.1s, color 0.1s;
+      background: linear-gradient(145deg, #2876a3, rgb(26, 107, 106));
+      box-shadow: inset 3px 3px 6px #13374d, inset -3px -3px 6px #13374d;
+    }
+
+    #time-change li {
+
+      width: 55px;
+      padding: 10px 11px;
+      font-size: 16px;
+    }
+    /* #attr-select li {
+      text-align: center;
+      width: 55px;
+      padding: 10px 11px;
+      font-size: 16px;
+    } */
+
+    #mode-change li {
+      width: 55px;
+    }
+
+    #func-change ul .active,
+    #time-change ul .active,
+    #mode-change ul .active,
+    #attr-select ul .active {
+      background: linear-gradient(145deg, #2876a3, rgb(48, 204, 201));
+      box-shadow: 3px 3px 6px #226288, -3px -3px 6px #273c47;
+
+    }
+
+    #date-choose {
+      visibility: hidden;
+      margin-top: 8px;
+      margin-bottom: 8px;
+
+    }
+
+    #mode-change {
+      visibility: hidden;
+    }
+
+    #subway-graph {
+      position: absolute;
+      top: 118px;
+      left: 405px;
+      
+      width: 505px;
+      height: 720px;
+    }
+
+    #statistic {
+      position: absolute;
+      width: 362px;
+      height: 676px;
+      top: 158px;
+      right:10px;
+      opacity: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #num-change {
+      width: 412px;
+      height: 315px;
+      border-radius: 15px;
+      background-color: #101e2c;
+      box-shadow: 3px 3px 6px #226288, -3px -3px 6px #273c47;
+    }
+
+    #line-sec {
+      width: 412px;
+      height: 315px;
+      border-radius: 15px;
+      background-color: #101e2c;
+      box-shadow: 3px 3px 6px #226288, -3px -3px 6px #273c47;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+
+    <div id="header">
+      <div class="head-bk">
+        <div id="logo">
+          <img src="../img/subway.png">
+        </div>
+        <ul id="tab">
+          <li class="firstP">
+            <a href="successIndex.html" class="active">首页</a>
+          </li>
+          <li class="secondP">
+            <a href="flowControl.html">地铁流量数据监控</a>
+
+          </li>
+          <li class="thirdP">
+            <a href="usersManage.html">用户管理</a>
+          </li>
+          <li class="fourthP">
+            <a href="sendMes.html">通知编辑</a>
+          </li>
+          <li class="fourthP">
+            <a href="notice.html">警报消息历史</a>
+
+          </li>
+          <li class="fourthP">
+            <a href="covidTracking.html">Covid患者追踪</a>
+          </li>
+          <li class="fourthP">
+                    <a class="activate" href="3D.html">3D</a>
+                </li>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
+      <div id="param">
+        <div id="param-tit">
+          参数选择
+        </div>
+        <div id="func-change">
+
+          <ul>
+            <li @click='change(index)' :class='currentIdx==index?"active":""' v-for='(item,index) in list'>
+              {{item.func}}
+            </li>
+          </ul>
+        </div>
+        <div id="time-change">
+          <ul>
+            <li @click='change(index)' :class='currentIdx==index?"active":""' v-for='(item,index) in list'>
+              {{item.func}}
+            </li>
+          </ul>
+        </div>
+        <div id="date-choose">
+          <input type="month" value="2019-12" />
+        </div>
+        <div id="mode-change">
+          <ul>
+            <li @click='change(index)' :class='currentIdx==index?"active":""' v-for='(item,index) in list'>
+              {{item.func}}
+            </li>
+          </ul>
+        </div>
+        <div id="attr-select" style="visibility:hidden">
+          <ul>
+            <li @click='change(index)' :class='currentIdx==index?"active":""' v-for='(item,index) in list'>
+              {{item.func}}
+            </li>
+          </ul>
+        </div>
+        <label id="rain" style="visibility:hidden"><input name="weather", type="radio", value="" /><div style="color: white;">晴天</div></label> 
+        <label id="sunny" style="visibility:hidden"><input name="weather", type="radio" value="" onclick = "drawSub(7)"/><div>雨天</div></label> 
+        <label id="weekend" style="visibility:hidden"><input name="week", type="radio", value="" /><div style="color: white;">周末</div></label> 
+        <label id="weekday" style="visibility:hidden"><input name="week", type="radio" value="" /><div>周日</div></label> 
+        <div id="predict" style="visibility:hidden">
+          
+              <button onclick = "drawSub(5)">开始预测</button>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="subway-graph">
+
+      </div>
+      <div id="statistic">
+        <div id="num-change">
+
+        </div>
+        <div id="line-sec">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+  <script src="../source/jquery-3.4.1.min.js"></script>
+  <script src="../source/vue.min.js"></script>
+  <script src="../js/successIndex.js"></script>
+  <script src="../source/map/china.js"></script>
+  <script src="../js/successIndex.js"></script>
+  <script>
+    var funcVm = new Vue({
+      el: '#func-change',
+      data: {
+        currentIdx: 0,
+        list: [{
+          id: 1,
+          func: '统计'
+        }, {
+          id: 2,
+          func: '预测'
+        }, {
+          id: 3,
+          func: '预警'
+        }]
+      },
+      methods: {
+        change: function (index) {
+          this.currentIdx = index;
+          let id = this.list[index].id
+          console.log(id)
+          if (id == 2) {
+            $('#attr-select').css("visibility", "visible")
+            $('#predict').css("visibility", "visible")
+            drawSub(6)
+          }
+          else{
+            $('#attr-select').css("visibility", "hidden")
+          }
+        }
+      }
+    })
+    var timeVm = new Vue({
+      el: '#time-change',
+      data: {
+        currentIdx: 0,
+        list: [{
+          id: 0,
+          func: '全部',
+          name: 'all'
+        }, {
+          id: 1,
+          func: '月范围',
+          name: 'month',
+          val:'2019-12'
+        }, {
+          id: 2,
+          func: '周范围',
+          name: 'week',
+          val:'2019-W52'
+        }, {
+          id: 3,
+          func: '日范围',
+          name: 'date',
+          val:'2019-12-25'
+        }]
+      },
+      methods: {
+        change: function (index) {
+          this.currentIdx = index;
+          let typ = this.list[index].name
+          let val = this.list[index].val
+          
+          if (index > 0) {
+            $('#date-choose').css("visibility", "visible")
+            $('#date-choose input').attr('type',typ )
+            $('#date-choose input').attr('value',val )
+            drawSub(4)
+          }
+          else{
+            $('#date-choose').css("visibility", "hidden")
+            drawSub(0)
+          }
+          if(index==3){
+            $('#mode-change').css("visibility", "visible")
+          }
+          else{
+            $('#mode-change').css("visibility", "hidden")
+          }
+        }
+      }
+    })
+    var modeVm = new Vue({
+      el: '#mode-change',
+      data: {
+        currentIdx: 0,
+        list: [{
+          id: 1,
+          func: '整天'
+        }, {
+          id: 2,
+          func: '早高峰'
+        },{
+          id: 3,
+          func: '晚高峰'
+        }]
+      },
+      methods: {
+        change: function (index) {
+          this.currentIdx = index;
+          console.log(this.currentIdx)
+          drawSub(index)
+        }
+      }
+    })
+    var attr = new Vue({
+      el: '#attr-select',
+      data: {
+        currentIdx: 0,
+        list: [{
+          id: 1,
+          func: '天气'
+        }, {
+          id: 2,
+          func: '节假日'}
+        // },{
+        //   id: 3,
+        //   func: ''
+        // }]
+        ]
+      },
+      methods: {
+        change: function (index) {
+          this.currentIdx = index;
+          let id = this.list[index].id
+          console.log(id)
+          if (id == 1) {
+            $('#rain').css("visibility", "visible")
+            $('#sunny').css("visibility", "visible")
+            $('#weekend').css("visibility", "hidden")
+            $('#weekday').css("visibility", "hidden")
+          }
+          else if (id == 2){
+            $('#rain').css("visibility", "hidden")
+            $('#sunny ').css("visibility", "hidden")
+            $('#weekend').css("visibility", "visible")
+            $('#weekday').css("visibility", "visible")
+          }else {
+            $('#rain').css("visibility", "hidden")
+            $('#sunny ').css("visibility", "hidden")
+            $('#weekend').css("visibility", "hidden")
+            $('#weekday').css("visibility", "hidden")
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        /*子选择器*/
+        /*全局设置表单元素的样式*/
+
+        #contact {
+            position: absolute;
+            top: 185px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 700px;
+            font-family: Arial, "Microsoft Yahei", sans-serif;
+            background-color: white;
+            width: 70%;
+            border-radius: 20px;
+            box-shadow: 0 2px 27px 6px rgba(0, 0, 0, .12);
+        }
+
+        #contact_form {
+            position: absolute;
+            top: 66px;
+            left: 20%;
+        }
+
+        .form_group {
+            position: absolute;
+
+        }
+
+        .group1 {
+            position: absolute;
+            width: 600px;
+            height: 50px;
+            font-size: 18px;
+        }
+        .word-box{
+            padding:8px;
+        }
+        .group3 {
+            position: absolute;
+            width: 638px;
+            top: 45px;
+        }
+
+        .group4 {
+            position: absolute;
+            width: 638px;
+            top: 143px;
+        }
+
+        .message {
+            width: 638px;
+        }
+
+        .subject {
+            margin: 5px;
+            padding: 5px;
+            line-height: 1.5;
+            border-radius: 8px;
+            height: 50px;
+            width: 100%;
+            border: 1px solid #f7f6f5;
+            font-size: 15px;
+            background-color: #f7f6f5;
+            font-weight: 500;
+            box-shadow: 0 1px 15px 6px rgba(197, 194, 194, 0.466);
+        }
+
+        #contact_form textarea {
+            margin: 5px;
+            padding: 5px;
+            line-height: 1.5;
+            border-radius: 8px;
+            border: 1px solid #f7f6f5;
+            font-size: 15px;
+            background-color: #f7f6f5;
+            font-weight: 500;
+            box-shadow: 0 1px 15px 6px rgba(197, 194, 194, 0.466);
+        }
+
+        #contact_form button {
+            position: absolute;
+            top: 438px;
+            left: 188px;
+            height: 45px;
+            width: 288px;
+            background-color: #ca6be7;
+            border: 0;
+            color: #fff;
+            padding: 10px 30px;
+            border-radius: 9px;
+            cursor: pointer;
+            outline: 0;
+            font-weight: 500;
+            font-size: 15px;
+
+        }
+        a{
+            white-space: nowrap;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/success/common.css">
+</head>
+
+<body>
+<div id="container">
+    <div id="header">
+        <div class="head-bk">
+            <div id="logo">
+                <img src="../img/subway.png">
+            </div>
+            <ul id="tab">
+                <li class="firstP">
+                    <a href="successIndex.html">首页</a>
+                </li>
+                <li class="secondP">
+                    <a href="flowControl.html">地铁流量数据监控</a>
+
+                </li>
+                <li class="thirdP">
+                    <a href="usersManage.html">用户管理</a>
+                </li>
+                <li class="fourthP">
+                    <a href="sendMes.html">通知编辑</a>
+                </li>
+                <li class="fourthP">
+                    <a href="notice.html">警报消息历史</a>
+
+                </li>
+                <li class="fourthP">
+                    <a href="covidTracking.html">Covid患者追踪</a>
+                </li>
+                <li class="fourthP">
+                    <a class="active" href="3D.html">3D</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--只需要在content处改变框内的内容-->
+
+    <!--使用表单，后续补充提交的代码-->
+    <div id="text">
+        <h1>站内3D导航图</h1>
+    </div>
+    <div id="contact">
+<!--        <form id="contact_form">-->
+<!--&lt;!&ndash;            <div class="form-group group1">&ndash;&gt;-->
+<!--&lt;!&ndash;                <label class="word-box">发布动态类型：</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <label class="word-box"> <input type="radio" class="news-type notice" name="type"  required="">公告</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <label class="word-box"> <input type="radio" class="news-type news" name="type"  required="">新闻动态</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <label class="word-box"> <input type="radio" class="news-type warning" name="type"  required="">紧急通知</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="form-group group3">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="text" class="subject" name="subject" placeholder="标题">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="form-group group4">&ndash;&gt;-->
+<!--&lt;!&ndash;                <textarea class="message" name="message" rows="10" placeholder="留言内容*" required=""></textarea>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button type="submit">提 交</button>&ndash;&gt;-->
+<!--            <iframe src="https://www.hightopo.com/demo/ht-subway/index.html"></iframe>-->
+<!--        </form>-->
+    
+        <iframe src="https://www.hightopo.com/demo/ht-subway/index.html" width="100%" height="100%"></iframe>
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+<script src="../source/jquery-3.4.1.min.js"></script>
+<script src="../source/vue.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  font-family: Montserrat, sans-serif;
+}
+
+a {
+  color: white;
+  white-space: nowrap;
+}
+
+
+body{
+  min-width: 1500px;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+/*头部栏的样式*/
+
+#header {
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  z-index: 999;
+}
+
+#logo {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#logo img{
+  width: 180px;
+  height: 120px;
+}
+
+#inf {
+  border-radius: 5%;
+  border: 2px solid white;
+  padding: 1% 1%;
+  color:white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#inf:hover{
+  background-color: rgb(50,60,72);
+}
+#tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  margin:auto;
+  height: 120px;
+  background-color: #071625;
+  color: white;
+}
+.head-bk{
+  background-color: #071625;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#tab li {
+  font-size: 18px;
+  padding: 1% 1%;
+}
+li a:hover{
+  border-bottom: 5px solid red;
+}
+#header .active{
+  border-bottom: 5px solid red;
+}
+
+

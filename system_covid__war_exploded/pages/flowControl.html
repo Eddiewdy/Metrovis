@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #content {
+      width: 100%;
+      height: 100%;
+    }
+    a{
+      white-space: nowrap;
+    }
+    #date-list {
+      position: fixed;
+      top: 230px;
+      left: 50px;
+      width: 400px;
+      height: 600px;
+    }
+
+    #date-app {
+      height: 535px;
+      overflow: scroll;
+      border-radius: 30px;
+      box-shadow: 0 2px 27px 6px rgba(0, 0, 0, .12);
+    }
+
+    #date-app::-webkit-scrollbar {
+      display: none;
+    }
+
+    #date {
+      width: 100%;
+      height: 35px;
+      padding: 20px 0px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+      line-height: 35px;
+      text-align: center;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    #date:hover {
+      background-color: rgba(230, 221, 221, 0.12);
+    }
+
+    /*
+    地铁流量数据图表呈现
+    */
+    #line-box {
+      display: absolute;
+      top: 185px;
+      left: 460px;
+      width: 1350px;
+      height: 600px;
+      padding-bottom: 60px;
+    }
+
+    #day-line {
+      display: absolute;
+      top: 185px;
+      left: 460px;
+      width: 680px;
+      height: 400px;
+
+    }
+
+    #day-sta {
+      display: absolute;
+      left: 1080px;
+      top: -214px;
+      width: 680px;
+      height: 400px;
+
+    }
+
+    #sta-box {
+      display: absolute;
+      top: -125px;
+      left: 475px;
+      width: 1350px;
+      height: 470px;
+
+    }
+    #xiantu {
+      display: absolute;
+      bottom: 100px;
+      height: 700px;
+      width: 1000px;
+      left:50%;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/success/common.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <div class="head-bk">
+        <div id="logo">
+          <img src="../img/subway.png">
+        </div>
+        <ul id="tab">
+          <li class="firstP">
+            <a href="successIndex.html">首页</a>
+          </li>
+          <li class="secondP">
+            <a class="active" href="flowControl.html">地铁流量数据监控</a>
+
+          </li>
+          <li class="thirdP">
+            <a href="usersManage.html">用户管理</a>
+          </li>
+          <li class="fourthP">
+            <a href="sendMes.html">通知编辑</a>
+          </li>
+          <li class="fourthP">
+            <a href="notice.html">警报消息历史</a>
+
+          </li>
+          <li class="fourthP">
+            <a href="covidTracking.html">Covid患者追踪</a>
+          </li>
+          <li class="fourthP">
+                    <a class="activate" href="3D.html">3D</a>
+                </li>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
+      <div id="date-list">
+        <ul id="date-app">
+          <li id="date" v-for="(d,index) in days" @click="changeGraph">
+            {{d}}
+          </li>
+        </ul>
+      </div>
+      <div id="graph">
+        <div id="line-box">
+        </div>
+        <div id="day-line">
+        </div>
+        <div id="day-sta">
+
+        </div>
+        <div id="sta-box">
+
+        </div>
+        <div id="xiantu">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+  <script src="../source/jquery-3.4.1.min.js"></script>
+  <script src="../source/vue.min.js"></script>
+  <script src="../js/flowControl.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>

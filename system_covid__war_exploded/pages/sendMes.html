@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <style>
+    /*子选择器*/
+    /*全局设置表单元素的样式*/
+    #container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      padding-top: 170px;
+      padding-bottom: 7%;
+    }
+    a{
+      white-space: nowrap;
+    }
+    #contact {
+      font-family: Arial, "Microsoft Yahei", sans-serif;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 2px 27px 6px rgba(0, 0, 0, .12);
+      margin: auto;
+      width: 70%;
+      height: 800px;
+    }
+
+    #contact_form {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .form_group {
+      width: 80%;
+    }
+    .label{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10%;
+    }
+    .word-box {
+      padding: 8px;
+    }
+
+    .message {
+
+    }
+
+    .subject {
+      line-height: 1.5;
+      height: 4%;
+      border-radius: 8px;
+      border: 1px solid #f7f6f5;
+      font-size: 15px;
+      background-color: #f7f6f5;
+      font-weight: 500;
+      padding: 2% 2% 2% 2%;
+      box-shadow: 0 1px 15px 6px rgba(197, 194, 194, 0.466);
+    }
+
+    body{
+      width: 100%!important;
+      min-height: 900px;
+    }
+    #contact_form textarea {
+      height: 37%;
+      padding: 2% 2% 2% 2%;
+      line-height: 1.5;
+      border-radius: 8px;
+      border: 1px solid #f7f6f5;
+      font-size: 15px;
+      background-color: #f7f6f5;
+      font-weight: 500;
+      box-shadow: 0 1px 15px 6px rgba(197, 194, 194, 0.466);
+    }
+
+    #contact_form button {
+      background-color: #ca6be7;
+      border: 0;
+      color: #fff;
+      padding: 10px 30px;
+      border-radius: 9px;
+      cursor: pointer;
+      outline: 0;
+      font-weight: 500;
+      font-size: 15px;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/success/common.css">
+</head>
+
+<body>
+<div id="header">
+  <div class="head-bk">
+    <div id="logo">
+      <img src="../img/subway.png">
+    </div>
+    <ul id="tab">
+      <li class="firstP">
+        <a href="successIndex.html">首页</a>
+      </li>
+      <li class="secondP">
+        <a href="flowControl.html">地铁流量数据监控</a>
+
+      </li>
+      <li class="thirdP">
+        <a href="usersManage.html">用户管理</a>
+      </li>
+      <li class="fourthP">
+        <a class="active" href="sendMes.html">通知编辑</a>
+      </li>
+      <li class="fourthP">
+        <a href="notice.html">警报消息历史</a>
+
+      </li>
+      <li class="fourthP">
+        <a href="covidTracking.html">Covid患者追踪</a>
+      </li>
+      <li class="fourthP">
+                    <a class="activate" href="3D.html">3D</a>
+                </li>
+    </ul>
+  </div>
+</div>
+  <div id="container">
+
+    <!--只需要在content处改变框内的内容-->
+
+    <!--使用表单，后续补充提交的代码-->
+    <div id="contact">
+      <form id="contact_form">
+        <div class="form_group label">
+          <label class="word-box">发布动态类型：</label>
+          <label class="word-box"> <input type="radio" class="news-type notice" name="type" required="">公告</label>
+          <label class="word-box"> <input type="radio" class="news-type news" name="type" required="">新闻动态</label>
+          <label class="word-box"> <input type="radio" class="news-type warning" name="type" required="">紧急通知</label>
+        </div>
+        <input type="text" class="subject form_group" name="subject" placeholder="标题">
+        <textarea class="message form_group" name="message" rows="10" placeholder="留言内容*" required=""></textarea>
+        <button type="submit">提 交</button>
+      </form>
+      <div class="data-box" style="padding:15px ;">
+        <table class="table1" style="border:0px;width:100%">
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+  <script src="../source/jquery-3.4.1.min.js"></script>
+  <script src="../source/vue.min.js"></script>
+
+</body>
+
+</html>

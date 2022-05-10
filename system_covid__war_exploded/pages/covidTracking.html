@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      a{
+          white-space: nowrap;
+      }
+    #content {
+      width: 1080px;
+      margin: auto;
+      margin-left: 100px;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #graph{
+        margin-top: 20%;
+        width: 50%;
+        margin-right:10%;
+       max-width: 1000px;
+    }
+    #form1{
+        /*margin-le:15%;*/
+        margin-top: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+        margin-top: 8%;
+    }
+    form{
+      
+        width: 100%;
+    }
+    td>a{
+        text-decoration: none;
+        color: cadetblue!important;
+        cursor: pointer;
+    }
+    th,td{
+        text-align: center;
+    }
+    h3{
+        margin-bottom: 20px;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        font-size: 35px;
+        color: cadetblue;
+    }
+    .table-hover > tbody > tr:hover > td,
+
+    .table-hover > tbody > tr:hover > th {
+
+    background-color: #bbbbbb;
+
+    }
+    li>a{
+        text-decoration: none;
+        color:white;
+    }
+    li>a:hover{
+        color: white;
+        text-decoration: none;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/success/common.css">
+</head>
+
+<body>
+  <div id="container">
+      <div id="header" >
+          <div class="head-bk">
+              <div id="logo">
+                  <img src="../img/subway.png">
+              </div>
+              <ul id="tab">
+                  <li class="firstP">
+                      <a href="successIndex.html">首页</a>
+                  </li>
+                  <li class="secondP">
+                      <a href="flowControl.html">地铁流量数据监控</a>
+
+                  </li>
+                  <li class="thirdP">
+                      <a href="usersManage.html">用户管理</a>
+                  </li>
+                  <li class="fourthP">
+                      <a href="sendMes.html">通知编辑</a>
+                  </li>
+                  <li class="fourthP">
+                      <a href="notice.html">警报消息历史</a>
+
+                  </li>
+                  <li class="fourthP">
+                      <a class="active" href="covidTracking.html">Covid患者追踪</a>
+                  </li>
+                  <li class="fourthP">
+                    <a class="activate" href="3D.html">3D</a>
+                </li>
+              </ul>
+          </div>
+      </div>
+    <div id="content">
+        <div id="form1">
+            <div>
+                <label class="word-box">
+                    <h3>
+                        COVID患者与接触者行程跟踪
+                    </h3>
+                
+                </label>
+            </div>
+            <form id="form" class="form-horizontal">
+                <div class="form-group">
+                  <label for="userId" class="col-sm-2 control-label" style="text-align: center;">患病用户ID</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="_userId" placeholder="exm:1d8b4fb45c7e95a09e185c63d1149230">
+                  </div>
+                </div>
+                <div class="form-group" style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+                  <label for="date" class="col-sm-2 control-label" style="text-align: center;">日期<br>(近七天)</label>
+                  <div class="col-sm-10">
+                    <select id="date"class="form-control">
+                        <option>2021.2.22</option>
+                        <option>2021.2.21</option>
+                        <option>2021.2.20</option>
+                        <option>2021.2.19</option>
+                        <option>2021.2.18</option>
+                        <option>2021.2.17</option>
+                        <option>2021.2.16</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button  class="btn btn-default" type="button" onclick="showUsers()">查询</button>
+                  </div>
+                </div>
+              </form>
+              <div id="table" style="display: none;">
+                <div><span style="font-size: 70px;" class="glyphicon glyphicon-random" aria-hidden="true"></span></div>
+                <div style="margin-bottom: 5%;"><span id="tips" style="font-size: 20px;" class="glyphicon-class">行程信息已在地图标红</span></div>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>患病用户ID</th>
+                        <th>患病用户姓名</th>
+                        <th>属性1</th>
+                        <th>属性2</th>
+                        <th>属性3</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" id="userid">患病用户Id</th>
+                        <td>123</td>
+                        <td>345</td>
+                        <td>456</td>
+                        <td>456</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th width='15%'>同乘旅客序号</th>
+                        <th width='40%'>userId</th>
+                        <th>性别</th>
+                        <th>出生年月</th>
+                        <th>所在地</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td><div>1d8b4fb45c7e
+                          95a09e185c63d1149230</div></td>
+                        <td>女</td>
+                        <td>2001</td>
+                        <td>新疆</td>
+                        <td><a onclick="showRoute(1)">查看路线</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>27fdd8d2d7560
+                          e36d7cb7bf676d5d7ef</td>
+                        <td>女</td>
+                        <td>1991</td>
+                        <td>湖北</td>  
+                        <td><a onclick="showRoute(2)">查看路线</a></td>
+                    </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>013b428d71510a
+                          b1691f7b1121a6a5be</td>
+                        <td>女</td>
+                        <td>1982</td>
+                        <td>湖北</td>
+                        <td><a onclick="showRoute(3)">查看路线</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              
+             
+        </div>
+        <div id="graph">
+            <div id="stationGraph"></div>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+  <script src="../source/jquery-3.4.1.min.js"></script>
+  <script src="../source/vue.min.js"></script>
+  <script src="../js/covidTracking.js"></script>
+  <script>
+        function hide(id){
+            document.getElementById(id).style.display = "none";
+        }
+        function show(id){
+            document.getElementById(id).style.display = "block";
+        }
+        function showUsers(){
+            userId = document.getElementById("_userId").value
+            date = document.getElementById("date").value
+            hide("form");
+            show("table");
+            showRoute(0);
+            document.getElementById("userid").innerText = userId;
+            document.getElementById("tips").innerText = userId + "用户"+date+"的行程信息已在地图标红"
+        }
+  </script>
+</body>
+
+</html>

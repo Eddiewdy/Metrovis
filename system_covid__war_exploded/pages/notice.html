@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /*子选择器*/
+    /*全局设置表单元素的样式*/
+    a{
+      white-space: nowrap;
+    }
+    #container{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 200px;
+      padding-bottom: 10%;
+    }
+    body {
+        text-align: center;
+        background: #fff;
+    }
+    #contact {
+    
+      height:auto;
+      font-family: Arial, "Microsoft Yahei", sans-serif;
+      background-color: white;
+      width: 75%;
+      border-radius: 20px;
+      box-shadow: 0 2px 27px 6px rgba(0, 0, 0, .12);
+    }
+
+    #topic{
+      height:auto;
+      font-family: Arial, "Microsoft Yahei", sans-serif;
+      
+      width: 75%;
+    
+    }
+
+    td {
+      vertical-align: middle!important;
+    }
+    
+    td>a{
+        vertical-align: middle;
+        text-decoration: none;
+        color: cadetblue!important;
+        cursor: pointer;
+    }
+    th,td{
+        text-align: center;
+        vertical-align:middle;
+    }
+    .group3 {
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      text-align: center;
+      /* width:  938px; */
+      top: 45px;
+      
+    }
+
+   
+
+    .ct {
+      text-align:left;
+    }
+    #contact_form textarea {
+      margin: 5px;
+      padding: 5px;
+      line-height: 1.5;
+      border-radius: 8px;
+      border: 1px solid #f7f6f5;
+      font-size: 15px;
+      background-color: #f7f6f5;
+      font-weight: 500;
+      box-shadow: 0 1px 15px 6px rgba(197, 194, 194, 0.466);
+    }
+
+    #contact_form button {
+      position: absolute;
+      top: 438px;
+      left: 188px;
+      height: 45px;
+      width: 288px;
+      background-color: #ca6be7;
+      border: 0;
+      color: #fff;
+      padding: 10px 30px;
+      border-radius: 9px;
+      cursor: pointer;
+      outline: 0;
+      font-weight: 500;
+      font-size: 15px;
+    }
+    li>a{
+        text-decoration: none;
+        color:white;
+    }
+    li>a:hover{
+        color: white;
+        text-decoration: none;
+    }
+    h3{
+        
+        margin-bottom: 20px;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        font-size: 35px;
+        color: cadetblue;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/success/common.css">
+</head>
+
+<body>
+  <div id="header">
+    <div class="head-bk">
+      <div id="logo">
+        <img src="../img/subway.png">
+      </div>
+      <ul id="tab">
+        <li class="firstP">
+          <a href="successIndex.html">首页</a>
+        </li>
+        <li class="secondP">
+          <a href="flowControl.html">地铁流量数据监控</a>
+
+        </li>
+        <li class="thirdP">
+          <a href="usersManage.html">用户管理</a>
+        </li>
+        <li class="fourthP">
+          <a href="sendMes.html">通知编辑</a>
+        </li>
+        <li class="fourthP">
+          <a  class="active" href="notice.html">警报消息历史</a>
+
+        </li>
+        <li class="fourthP">
+          <a href="covidTracking.html">Covid患者追踪</a>
+        </li>
+        <li class="fourthP">
+                    <a class="activate" href="3D.html">3D</a>
+                </li>
+      </ul>
+    </div>
+  </div>
+  <div id="container">
+    <div id="topic">
+      <label class=""word-box"">
+          <h3>
+              历史警报消息记录
+          </h3>
+      
+      </label>
+    </div>
+    
+    <!--只需要在content处改变框内的内容-->
+    <!-- <label class=""word-box""> -->
+      <!-- <h4>
+          COVID患者与接触者行程跟踪
+      </h4> -->
+  
+
+   
+    <!--使用表单，后续补充提交的代码-->
+    <div id="contact">
+      
+      <form id="contact_form">
+        <div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th width='20%'><h4>消息类型</h4></th>
+                <th width='30%'><h4>消息详细内容</h4></th>
+                <th width='15%'><h4>消息发出者</h4></th>
+                <th><h4>消息等级</h4></th>
+                
+                <!-- <th>性别</th>
+                <th>出生年月</th>
+                <th>所在地</th>
+                <th>操作</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <td><img src="../img/sub1.jpg" class="img-rounded"></td>
+                <td><div class="ct">地铁6号线一期工程为西南至东北走向，线路总长约20.1公里，贯穿高新区，连通长安、碑林及雁塔区，
+                  线路南起西安南站，北到西北工业大学站，共设车站15座（含换乘站6座）。车辆采用B型车，6辆编组，最高运行速度80公里/小时，</div></td>
+                <td><div>二号线Sta34</div></td>
+                <td><img src="../img/star1.png"></img></td>
+                <td><a>查看详细信息</a></td>
+              </tr>
+              <tr>
+                <!-- <th scope="row">2</th> -->
+                <td><img src="../img/sub2.png" class="img-rounded"></td>
+                <td><div class="ct">一号线Sta2站内出现安全事故</div></td>
+                <td><div>一号线Sta2</div></td>
+                <td><img src="../img/star2.png"></img></td>
+                <td><a>查看详细信息</a></td>
+              </tr>
+              <tr>
+                <!-- <th scope="row">3</th>
+                <td>Larry</td> -->
+                <td><img src="../img/sub3.jpg" class="img-rounded"></td>
+                <td><div class="ct">65次列车因车辆故障暂时无法运行</div></td>
+                <td><div>65次列车</div></td>
+                <td><img src="../img/star3.png"></img></td>
+                <td><a>查看详细信息</a></td>
+              </tr>
+              <tr>
+                <!-- <th scope="row">3</th>
+                <td>Larry</td> -->
+                <td><img src="../img/sub4.jpg" class="img-rounded"></td>
+                <td><div class="ct">出现早晚高峰，采取紧急调度</div></td>
+                <td><div>管理员</div></td>
+                <td><img src="../img/star4.png"></img></td>
+                <td><a>查看详细信息</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+    <div class="data-box" style="padding:15px ;">
+      <table class="table1" style="border:0px;width:100%">
+      </table>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+  <script src="../source/jquery-3.4.1.min.js"></script>
+  <script src="../source/vue.min.js"></script>
+
+</body>
+
+</html>
